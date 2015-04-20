@@ -3,7 +3,7 @@
  <property name="php" value="php"/>
 
  <target name="build"
-   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit,phpdox"/>
+   depends="prepare,lint,phploc,pdepend,phpmd-ci,phpcs-ci,phpcpd,phpunit"/>
 
  <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/bin"/>
@@ -14,8 +14,6 @@
   <delete dir="${basedir}/build/coverage"/>
   <delete dir="${basedir}/build/logs"/>
   <delete dir="${basedir}/build/pdepend"/>
-  <delete dir="${basedir}/build/phar"/>
-  <delete dir="${basedir}/build/phpdox"/>
 
   <delete>
    <fileset dir="${basedir}/build">
@@ -148,10 +146,6 @@
   </exec>
  </target>
 
- <target name="phpdox"
-         description="Generate software project documentation using phpDox">
-  <exec executable="phpdox" />
- </target>
 
  <target name="signed-phar"
          description="Create signed PHAR archive of PHPUnit and all its dependencies (release)"
